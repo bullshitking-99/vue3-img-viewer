@@ -1,5 +1,6 @@
 <script lang="ts" name="ImgViewer" setup>
 import { onMounted, ref } from "vue";
+import { getRects, debounce, enlarge } from "../utils";
 
 // 控制 modal
 const isShow = ref(false);
@@ -22,14 +23,6 @@ interface IRects {
 let curRects: IRects; // 原图
 let prevRects: IRects; // 预览图
 let scaleVal: number;
-
-// First & Last 获取图片大小和位置
-function getRects(img: HTMLImageElement) {
-  // 该方法会强制更新dom信息
-  const rect = img.getBoundingClientRect();
-  const { left, top, width } = rect;
-  return { left, top, width };
-}
 
 // invert & play
 function invertPlay(imgDom: HTMLImageElement, control: "show" | "close") {
@@ -91,7 +84,7 @@ const modalClose: () => void = debounce(function () {
     // invert play again
     invertPlay(modalImg, "close");
   }
-}, 0);
+}, 20);
 
 // 滚动响应 - 在modal打开时，监听滚动事件
 window.onscroll = modalClose;
@@ -136,28 +129,7 @@ onMounted(() => {
     curImg.style.visibility = "hidden";
   };
 });
-
-// 防抖函数
-function debounce(func: Function, delay: number) {
-  // 记录上一次调度标识
-  let lastTimerId: number;
-
-  return function (this: Function, ...args: any[]) {
-    // 取消上一次调度，若调度已执行，clearTimeout无副作用
-    clearTimeout(lastTimerId);
-    lastTimerId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
-}
 </script>
-
-<!-- <script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "ImgViewer",
-});
-</script> -->
 
 <template>
   <div id="imgViewer">
@@ -167,7 +139,7 @@ export default defineComponent({
       class="modal"
       :class="isShow ? 'modalShow' : 'modalClose'"
     >
-      <img id="imgViewer-modalImg" :src="imgSrc" />
+      <img id="imgViewer-modalImg" @dblclick.native="enlarge" :src="imgSrc" />
     </div>
     <slot></slot>
   </div>
@@ -185,6 +157,9 @@ export default defineComponent({
     transition: all ease 0.25s;
     z-index: 999;
 
+    // 移动端放大后可移动查看
+    overflow: auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -192,6 +167,7 @@ export default defineComponent({
     img {
       pointer-events: none;
       user-select: none;
+      max-width: 100vw;
     }
 
     &.modalShow {

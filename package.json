@@ -17,7 +17,7 @@
   "license": "MIT",
   "author": "minghe-lee",
   "module": "./dist/ImgViewer.es.ts",
-  "main": "./dist/ImgViewer.umd.ts",
+  "main": "./dist/ImgViewer.es.ts",
   "exports": {
     ".": {
       "import": "./dist/ImgViewer.es.ts",
