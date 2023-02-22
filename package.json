@@ -1,7 +1,7 @@
 {
   "name": "vue3-img-viewer",
-  "version": "0.0.10",
-  "description": "基于Vue3使用的图片查看组件",
+  "version": "0.0.11",
+  "description": "基于Vue3使用的图片查看组件 A lightly and smooth imgViewer for Vue/You",
   "files": [
     "dist"
   ],
@@ -28,6 +28,14 @@
       "require": "./dist/style.css"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bullshitking-99/vue3-img-viewer"
+  },
+  "bugs": {
+    "url": "https://github.com/bullshitking-99/vue3-img-viewer/issues"
+  },
+  "homepage": "https://bullshitking-99.github.io/vue3-img-viewer/",
   "private": false,
   "scripts": {
     "dev": "vite",
