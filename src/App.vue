@@ -1,4 +1,6 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import ImgViewer from "./components/ImgViewer.vue";
+</script>
 
 <template>
   <main>
