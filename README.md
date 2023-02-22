@@ -8,6 +8,8 @@
 
 ### [在线地址(online App)](https://bullshitking-99.github.io/vue3-img-viewer/)
 
+### [GitHub](https://github.com/bullshitking-99/vue3-img-viewer)
+
 ## 在组件中使用 used in the component
 
 将其包裹在含有图片的组件内，它将自动识别组件内容里所有的 img 元素，并让它可以点击预览
