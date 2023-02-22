@@ -18,13 +18,14 @@ import ImgViewer from "./components/ImgViewer.vue";
 <style scoped lang="scss">
 main {
   width: 60vw;
+  min-width: 350px;
   margin: 10vh auto;
   text-align: center;
 
   background-color: bisque;
   border-radius: 4%;
   box-shadow: 0px 2px 30px rgba(128, 128, 128, 0.455);
-  padding: 30px 0;
+  padding: 30px 10px;
 
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 
