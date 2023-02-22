@@ -4,7 +4,7 @@
 
 ## 预览
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cce94102899344f390974ebb6f706a84~tplv-k3u1fbpfcp-watermark.image?)
+![preview](https://github.com/bullshitking-99/vue3-img-viewer/tree/master/src/assets/vue3-img-viewer.gif?)
 
 ### [在线地址(click me)](https://bullshitking-99.github.io/vue3-img-viewer/)
 
@@ -14,7 +14,6 @@
 
 ```html
 // in any.vue
-
 <template>
   <ImgViewer>
     <div>... put any thing ...</div>
@@ -33,10 +32,8 @@
 ```TypeScript
 // npm
 npm install vue3-img-viewer
-
 // yarn
 yarn add vue3-img-viewer
-
 // pnpm
 yarn install vue3-img-viewer
 
@@ -48,7 +45,6 @@ yarn install vue3-img-viewer
 
 ```TypeScript
 // in main.ts
-
 // import ts and css
 import ImgViewer from "vue3-img-viewer";
 import "vue3-img-viewer/dist/style.css";
@@ -66,7 +62,6 @@ app.mount("#app");
 
 ```ts
 // in any.vue
-
 // import ts and css
 <script>
   import ImgViewer from "vue3-img-viewer"; import
@@ -76,13 +71,16 @@ app.mount("#app");
 
 ## 特性
 
+- 开箱即用，一步配置
+
+  - 可在任何你需要它的地方套上即可自动识别，即使是 body 标签！
+
 - 丝滑动画
 
-  使用 FLIP 实现，符合直觉
+  - 使用 FLIP 实现，符合直觉
 
 - 监听 window 滚动，退出预览
-
-  在预览状态下滚动即可退出
+  - 在预览状态下滚动即可退出
 
 ## 待开发
 
