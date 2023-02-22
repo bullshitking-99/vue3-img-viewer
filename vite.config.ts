@@ -7,6 +7,7 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  base: "/vue3-img-viewer/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
