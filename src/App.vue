@@ -23,7 +23,7 @@ main {
   text-align: center;
 
   background-color: bisque;
-  border-radius: 4%;
+  border-radius: 15px;
   box-shadow: 0px 2px 30px rgba(128, 128, 128, 0.455);
   padding: 30px 10px;
 
