@@ -74,7 +74,7 @@ app.mount("#app");
 
 - 开箱即用，一步配置
 
-  - 可在任何你需要它的地方套上即可自动识别，即使是 body 标签！
+  - 可在任何你需要它的地方套上即可自动识别，即使是 body 标签！不过我仍然建议你将它仅包裹在必须的地方，如 article、post-body 这类，以避免页面中其它带图片的功能组件受到影响(如内嵌图片的可点击卡片)
 
 - 丝滑动画
 
@@ -87,7 +87,7 @@ app.mount("#app");
 
 - Out of the box, one-step configuration
 
-  - Can be put on anywhere you need it and can be automatically recognized, even body tags!
+  - Put it on anywhere you need it for automatic recognition, even body tags! However, I still recommend that you only wrap it in necessary places, such as article, post-body, etc., to avoid affecting other functional components with img on the page (such as clickable cards with embedded img)
 
 - silky animation
 
@@ -105,7 +105,7 @@ app.mount("#app");
 
 ## To be developed
 
-- Improve scrolling exit animation to make it as smooth as clicking back
+- double click to enlarge img
 - Listen for custom scroll sources
 - js version and corresponding type file
 - Continuous development, so stay tuned

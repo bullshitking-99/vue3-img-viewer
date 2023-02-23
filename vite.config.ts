@@ -7,12 +7,16 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  server: {
+    open: true,
+  },
   base: "/vue3-img-viewer/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+
   // build: {
   //   lib: {
   //     entry: path.resolve(__dirname, "src/export.ts"),
