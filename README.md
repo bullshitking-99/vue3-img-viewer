@@ -1,6 +1,6 @@
 # vue3-img-viewer
 
-> A lightly and smooth imgViewer for Vue/You
+> _A lightly and smooth imgViewer for Vue/You_
 
 ## 预览 Preview
 
@@ -10,8 +10,8 @@
 
 ## 在组件中使用 used in the component
 
-将其包裹在含有图片的组件内，它将自动识别组件内容里所有的 img 元素，并让它可以点击预览
-Wrap it in a component containing an image, it will automatically recognize all img elements in the component content, and make it clickable to preview
+将其包裹在含有图片的组件内，它将自动识别组件内容里所有的 img 元素，并让它可以点击预览.
+Wrap it in a component containing an image, it will automatically recognize all img elements in the component content, and make it clickable to preview.
 
 ```html
 // in any.vue
@@ -36,13 +36,14 @@ npm install vue3-img-viewer
 // yarn
 yarn add vue3-img-viewer
 // pnpm
-yarn install vue3-img-viewer
+pnpm install vue3-img-viewer
 
 ```
 
 - 全局安装 Global installation
 
-  执行下步即可在所有页面随意引用 Execute the next step to freely quote on all pages
+  执行下步即可在所有页面随意引用.
+  Execute the next step to freely quote on all pages.
 
 ```TypeScript
 // in main.ts
@@ -57,9 +58,10 @@ app.mount("#app");
 
 ```
 
-- 局部引用 partial reference
+- 局部引用 Partial Reference
 
-  或在需要它的地方直接引用 or directly refer to where you need it
+  或在需要它的地方直接引用.
+  or directly refer to where you need it.
 
 ```ts
 // in any.vue
