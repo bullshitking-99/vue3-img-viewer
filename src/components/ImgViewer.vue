@@ -1,5 +1,5 @@
 <script lang="ts" name="ImgViewer" setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { getRects, debounce, enlarge } from "../utils";
 
 // 控制 modal
@@ -92,11 +92,14 @@ const modalClose: () => void = debounce(function () {
     // invert play again
     invertPlay(modalImg, "close");
   }
-}, 20);
+}, 50);
 
-// 滚动响应 - 在modal打开时，监听滚动事件
-window.onscroll = modalClose;
-// 也可自行使用inject监听滚动源
+// 滚动响应 - watch(isShow), 在modal打开时，监听滚动事件
+watch(isShow, (isShow) => {
+  if (isShow) window.addEventListener("scroll", modalClose);
+  if (!isShow) window.removeEventListener("scroll", modalClose);
+});
+// 也可自行使用inject监听滚动源;
 
 onMounted(() => {
   // 获取页面图片dom集
