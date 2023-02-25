@@ -168,6 +168,7 @@ onMounted(() => {
       pointer-events: none;
       user-select: none;
       max-width: 100vw;
+      max-height: 100vh;
     }
 
     &.modalShow {

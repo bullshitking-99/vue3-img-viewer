@@ -8,8 +8,10 @@ import ImgViewer from "./components/ImgViewer.vue";
     <h2>A lightly and smooth imgViewer for Vue/You</h2>
     <div id="hr"></div>
     <ImgViewer>
-      <h3>this is a beautiful html img element, try click it</h3>
-      <img src="./assets/girl.png" alt="" />
+      <h3>this is a beautiful html img element, click it to enlarge</h3>
+      <img class="small" src="./assets/girl.png" alt="" />
+      <h3>this is a huge img, click to make it small</h3>
+      <img class="large" src="./assets/yuan.jpg" alt="" />
       <h3 v-for="itme in 10">scroll when preview</h3>
     </ImgViewer>
   </main>
@@ -41,12 +43,15 @@ main {
     border-bottom: 2px solid gray;
   }
 
+  img {
+    &.small {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
   h3 {
     opacity: 0.4;
-  }
-  img {
-    width: 300px;
-    height: 300px;
   }
 }
 </style>
