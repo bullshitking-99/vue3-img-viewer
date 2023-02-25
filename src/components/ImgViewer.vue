@@ -61,6 +61,9 @@ function invertPlay(imgDom: HTMLImageElement, control: "show" | "close") {
       isShow.value = false;
       imgSrc.value = "";
 
+      // 使modal回到可关闭状态
+      closeable = true;
+
       // put origin-img back
       curImg.style.visibility = "visible";
 
@@ -74,8 +77,13 @@ function invertPlay(imgDom: HTMLImageElement, control: "show" | "close") {
 // modal close handler - click & scroll
 // 在一次滚动行为中 只执行最后一次 并重新获取原图的位置
 // 进行防抖处理
+// 在关闭动画执行期间，不再响应事件调用，动画结束后再打开
+let closeable = true;
 const modalClose: () => void = debounce(function () {
-  if (isShow.value) {
+  // 滚动时触发，使用isShow判断是否执行
+  if (isShow.value && closeable) {
+    closeable = false;
+
     // 重新记录原图位置
     curRects = getRects(curImg);
 
