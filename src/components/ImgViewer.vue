@@ -1,6 +1,13 @@
-<script lang="ts" name="ImgViewer" setup>
+<script lang="ts" setup>
+import type { Ref } from "vue";
 import { onMounted, ref, watch } from "vue";
 import { getRects, debounce, enlarge } from "../utils";
+
+interface Props {
+  // 滚动检测源 - 响应式数据
+  scrollTop?: Ref<number>;
+}
+const props = defineProps<Props>();
 
 // 控制 modal
 const isShow = ref(false);
@@ -96,7 +103,13 @@ const modalClose: () => void = debounce(function () {
 
 // 滚动响应 - watch(isShow), 在modal打开时，监听滚动事件
 watch(isShow, (isShow) => {
-  if (isShow) window.addEventListener("scroll", modalClose);
+  if (isShow) {
+    if (props.scrollTop) {
+      watch(props.scrollTop, modalClose);
+    } else {
+      window.addEventListener("scroll", modalClose);
+    }
+  }
   if (!isShow) window.removeEventListener("scroll", modalClose);
 });
 // 也可自行使用inject监听滚动源;
@@ -119,10 +132,13 @@ onMounted(() => {
   };
   // 为每个图片添加点击事件响应
   imgs.forEach((img: HTMLImageElement) => {
-    // 预设样式
-    img.style.cursor = "zoom-in";
-    // 添加事件监听
-    img.addEventListener("click", curImgClickHandler);
+    // 在图片加载完成后 进行处理
+    img.onload = function () {
+      // 预设样式
+      img.style.cursor = "zoom-in";
+      // 添加事件监听
+      img.addEventListener("click", curImgClickHandler);
+    };
   });
 
   // 获取modal实例
