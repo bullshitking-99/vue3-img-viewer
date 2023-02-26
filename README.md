@@ -18,6 +18,8 @@
   - Scroll to exit in preview state
 - provide scrolling source by yourself
   - When it is inconvenient to use the native window to monitor scrolling, you can provide one yourself
+- Unloaded images will not be recognized
+  - Images that are not fully loaded or do not exist will be skipped during the processing stage, so as to ensure the normal operation of the component
 
 ## 特性
 
@@ -29,6 +31,8 @@
   - 在预览状态下滚动即可退出
 - 自行提供滚动源
   - 在不方便使用原生 window 监听滚动时，你可以自己提供一个
+- 未加载图片不会被识别
+  - 未加载完全或不存在的图片在处理阶段会被跳过，这样可以保证组件正常运行
 
 ## 马上整起 Get it in SECONDS
 
