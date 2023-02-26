@@ -10,7 +10,7 @@ import ImgViewer from "./components/ImgViewer.vue";
     <ImgViewer>
       <h3>this is a beautiful html img element, click it to enlarge</h3>
       <img class="small" src="./assets/girl.png" alt="" />
-      <h3>this is a huge img, click to make it small</h3>
+      <h3>this is a long img, click to make it center</h3>
       <img class="large" src="./assets/yuan.jpg" alt="" />
       <h3 v-for="itme in 10">scroll when preview</h3>
     </ImgViewer>
@@ -47,6 +47,9 @@ main {
     &.small {
       width: 300px;
       height: 300px;
+    }
+    &.large {
+      width: 100%;
     }
   }
 
