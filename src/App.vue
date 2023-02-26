@@ -12,6 +12,15 @@ import ImgViewer from "./components/ImgViewer.vue";
       <img class="small" src="./assets/girl.png" alt="" />
       <h3>this is a long img, click to make it center</h3>
       <img class="large" src="./assets/yuan.jpg" alt="" />
+      <h3>
+        This is a img that doesn't exist or Not loaded yet, can't click to keep
+        safe
+      </h3>
+      <img
+        class="small"
+        src="https://github.com/bullshitking-99/vue3-img-viewer/assets/not-exsit.jpg"
+        alt="I'm not ready yet"
+      />
       <h3 v-for="itme in 10">scroll when preview</h3>
     </ImgViewer>
   </main>
