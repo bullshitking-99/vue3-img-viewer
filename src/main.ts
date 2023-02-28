@@ -7,6 +7,10 @@ import "./assets/main.css";
 // import ImgViewer from "vue3-img-viewer";
 // import "vue3-img-viewer/dist/style.css";
 
+// toc-creator
+import toc from "toc-creator";
+import "toc-creator/dist/style.css";
+
 const app = createApp(App);
-// app.use(ImgViewer);
+app.use(toc);
 app.mount("#app");

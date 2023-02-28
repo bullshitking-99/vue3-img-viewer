@@ -1,6 +1,6 @@
 {
   "name": "vue3-img-viewer",
-  "version": "1.0.4",
+  "version": "1.1.1",
   "description": "基于Vue3使用的图片查看组件 A lightly and smooth imgViewer for Vue/You",
   "files": [
     "dist"
@@ -57,6 +57,7 @@
     "vue-tsc": "^1.0.12"
   },
   "dependencies": {
+    "toc-creator": "^1.0.5",
     "vue": "^3.2.47"
   }
 }

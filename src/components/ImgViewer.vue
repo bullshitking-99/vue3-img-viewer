@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Ref } from "vue";
 import { onMounted, ref, watch } from "vue";
-import { getRects, debounce, enlarge } from "../utils";
+import { getRects, debounce, enlarge, useGif } from "../utils";
 
 interface Props {
   // 滚动检测源 - 响应式数据
@@ -134,10 +134,26 @@ onMounted(() => {
   imgs.forEach((img: HTMLImageElement) => {
     // 在图片加载完成后 进行处理
     img.onload = function () {
-      // 预设样式
-      img.style.cursor = "zoom-in";
-      // 添加事件监听
-      img.addEventListener("click", curImgClickHandler);
+      // 根据src后缀判断图片种类
+      const imgType = img.src.split(".").pop();
+      // gif处理
+      if (imgType === "gif") {
+        // 预设样式
+        img.style.cursor = "pointer";
+        // 将gif切换为封面，并导出控制方法
+        const { stop, play, isPlay } = useGif(img);
+        // 添加事件监听
+        img.addEventListener("click", () => {
+          isPlay.value ? stop() : play();
+        });
+      }
+      // 静态图片处理
+      if (imgType !== "gif") {
+        // 预设样式
+        img.style.cursor = "zoom-in";
+        // 添加事件监听
+        img.addEventListener("click", curImgClickHandler);
+      }
     };
   });
 

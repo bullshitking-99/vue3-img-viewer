@@ -118,6 +118,5 @@ const props = defineProps<Props>();
 ## To be developed
 
 - double click to enlarge img
-- Listen for custom scroll sources
 - ts type declare
 - Continuous development, so stay tuned

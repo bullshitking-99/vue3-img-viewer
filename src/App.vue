@@ -7,7 +7,10 @@ import ImgViewer from "./components/ImgViewer.vue";
     <h1>vue3-img-viewer</h1>
     <h2>A lightly and smooth imgViewer for Vue/You</h2>
     <div id="hr"></div>
+    <!-- <toc-creator></toc-creator> -->
     <ImgViewer>
+      <!-- todo: gif 播放与停止  -->
+      <img class="gif" src="./assets/vue3-img-viewer.gif" alt="" />
       <h3>this is a beautiful html img element, click it to enlarge</h3>
       <img class="small" src="./assets/girl.png" alt="" />
       <h3>this is a long img, click to make it center</h3>
@@ -53,6 +56,9 @@ main {
   }
 
   img {
+    &.gif {
+      max-width: 60%;
+    }
     &.small {
       width: 300px;
       height: 300px;

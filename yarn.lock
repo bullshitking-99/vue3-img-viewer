@@ -1012,6 +1012,13 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+toc-creator@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/toc-creator/-/toc-creator-1.0.5.tgz#422f647cd8295864cd6dc9806d87826e3fd620ad"
+  integrity sha512-0I5iq//RMkhp61LgrJ9reQgJ5PCv2SkA6J7/GSc0/KDxY3IRvbzLqv+4y+nVWsmD9Ufmr771hzZHyLoJHkAhcw==
+  dependencies:
+    vue "^3.2.47"
+
 typed-array-length@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmmirror.com/typed-array-length/-/typed-array-length-1.0.4.tgz#89d83785e5c4098bec72e08b319651f0eac9c1bb"
@@ -1071,19 +1078,6 @@ vue-tsc@^1.0.12:
   dependencies:
     "@volar/vue-language-core" "1.1.5"
     "@volar/vue-typescript" "1.1.5"
-
-vue3-img-viewer@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.npmjs.org/vue3-img-viewer/-/vue3-img-viewer-0.0.4.tgz#b74ec71960a9e7dc72cfbbbfbaec7b623de2771c"
-  integrity sha512-qLr/6TBVhmfTS8TEKRObc+BA5th+YE2w55btTE+Mpp5108z4S7caMgH1CS9s5Uy2Ua7eEmPpWTLMs1AqXdHJhA==
-
-vue3-img-viewer@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/vue3-img-viewer/-/vue3-img-viewer-0.0.9.tgz#5732fd55af14a8e63ed91dcb0376168fe9a4e313"
-  integrity sha512-mhT8/K/NwngK1DubxSsrm9LkWVNM/OFAhwdVPBlXNoHKFGsF+dKfh/s1vjtBzT5gPCmR5zr/d8RmrNeONgOmMQ==
-  dependencies:
-    vue "^3.2.47"
-    vue3-img-viewer "^0.0.4"
 
 vue@^3.2.47:
   version "3.2.47"
