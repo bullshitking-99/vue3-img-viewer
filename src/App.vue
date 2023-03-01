@@ -5,26 +5,35 @@ import ImgViewer from "./components/ImgViewer.vue";
 <template>
   <main>
     <h1>vue3-img-viewer</h1>
-    <h2>A lightly and smooth imgViewer for Vue/You</h2>
+    <p class="introduce">A lightly and smooth imgViewer for Vue/You</p>
+
     <div id="hr"></div>
-    <!-- <toc-creator></toc-creator> -->
+    <p class="describe">
+      please click these imgs below, when the preview modal open
+      <br />
+      try click again or scroll to close it.
+    </p>
+    <toc-creator></toc-creator>
     <ImgViewer>
-      <!-- todo: gif 播放与停止  -->
-      <img class="gif" src="./assets/vue3-img-viewer.gif" alt="" />
-      <h3>this is a beautiful html img element, click it to enlarge</h3>
+      <h2>normal</h2>
       <img class="small" src="./assets/girl.png" alt="" />
-      <h3>this is a long img, click to make it center</h3>
+      <h2>long and large</h2>
       <img class="large" src="./assets/yuan.jpg" alt="" />
-      <h3>
-        This is a img that doesn't exist or Not loaded yet, can't click to keep
-        safe
-      </h3>
+      <h2>404 or unload</h2>
       <img
-        class="small"
+        class="non"
         src="https://github.com/bullshitking-99/vue3-img-viewer/assets/not-exsit.jpg"
         alt="I'm not ready yet"
       />
-      <h3 v-for="itme in 10">scroll when preview</h3>
+      <h2>GIF</h2>
+      <p class="tip">
+        this feature is optional,use it by prop
+        <br />
+        All .gif will stop on initialization and can be clicked to play
+        <br />
+        for easy browsing and energy saving
+      </p>
+      <img class="gif" src="./assets/vue3-img-viewer.gif" alt="" />
     </ImgViewer>
   </main>
 </template>
@@ -46,13 +55,33 @@ main {
   h1 {
     font-size: 300%;
   }
-  h2 {
+  .introduce {
+    font-size: 20px;
+    font-weight: bold;
     opacity: 0.7;
+    margin: 15px auto;
+    font-style: italic;
   }
   #hr {
     margin: 30px auto;
     width: 40%;
     border-bottom: 2px solid gray;
+  }
+  .describe {
+    display: inline-block;
+    font-size: 18px;
+    font-style: italic;
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+  h2 {
+    opacity: 0.7;
+    margin: 20px auto;
+  }
+  .tip {
+    margin-bottom: 10px;
+    font-style: italic;
+    opacity: 0.5;
   }
 
   img {
@@ -66,10 +95,10 @@ main {
     &.large {
       width: 100%;
     }
-  }
-
-  h3 {
-    opacity: 0.4;
+    &.non {
+      border: 1px solid black;
+      padding: 100px;
+    }
   }
 }
 </style>

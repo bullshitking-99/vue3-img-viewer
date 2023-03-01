@@ -55,19 +55,21 @@ export function useGif(gif: HTMLImageElement) {
   let canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
   // 取gif第一帧作为底图
   ctx?.drawImage(gif, 0, 0, width, height);
 
   // 准备gif标志
-  const gifSVG = new Image();
+  const gifSVG = document.createElement("img");
   gifSVG.src = gif_path;
-
+  gifSVG.style.backgroundColor = "gray";
   // gif标志绘制函数，待图片加载后调用
   function drawGifSVG() {
     const gif_width = 70;
     const gif_height = 70;
-    gifSVG.style.filter = "grayscale(30%)";
+    // gifSVG.style.filter = "grayscale(30%)";
+    // gifSVG.style.backgroundColor = "gray"; // 设置图像样式无用
+
     ctx?.drawImage(
       gifSVG,
       (width - gif_width) / 2,
@@ -75,6 +77,7 @@ export function useGif(gif: HTMLImageElement) {
       gif_width,
       gif_height
     );
+    // ctx.globalAlpha = 0.2; // 也不顶用
   }
 
   gifSVG.onload = () => {
