@@ -20,6 +20,8 @@
   - When it is inconvenient to use the native window to monitor scrolling, you can provide one yourself
 - Unloaded images will not be recognized
   - Images that are not fully loaded or do not exist will be skipped during the processing stage, so as to ensure the normal operation of the component
+- Gif image static
+  - Display the cover when initializing, click to make it play and stop again, this is for the convenience of browsing and energy saving
 
 ## 特性
 
@@ -33,6 +35,8 @@
   - 在不方便使用原生 window 监听滚动时，你可以自己提供一个
 - 未加载图片不会被识别
   - 未加载完全或不存在的图片在处理阶段会被跳过，这样可以保证组件正常运行
+- Gif 图像静止
+  - 初始化时仅展示封面，可点击使其播放和再次停止，这样是为了方便浏览和节约能耗
 
 ## 马上整起 Get it in SECONDS
 
