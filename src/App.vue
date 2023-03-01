@@ -6,14 +6,25 @@ import ImgViewer from "./components/ImgViewer.vue";
   <main>
     <h1>vue3-img-viewer</h1>
     <p class="introduce">A lightly and smooth imgViewer for Vue/You</p>
-
     <div id="hr"></div>
+
     <p class="describe">
       please click these imgs below, when the preview modal open
       <br />
       try click again or scroll to close it.
     </p>
+
     <toc-creator></toc-creator>
+    <!-- toc-creator 介绍 -->
+    <span class="toc-creator describe">
+      this is my another npm
+      <br />
+      component:
+      <a href="https://www.npmjs.com/package/toc-creator" target="_blank">
+        toc-creator
+      </a>
+    </span>
+
     <ImgViewer>
       <h2>normal</h2>
       <img class="small" src="./assets/girl.png" alt="" />
@@ -51,6 +62,14 @@ main {
   padding: 30px 10px;
 
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+
+  .toc-creator {
+    position: fixed;
+    top: 160px;
+    left: 20px;
+    padding-left: 10px;
+    border-left: 3px solid gray;
+  }
 
   h1 {
     font-size: 300%;
