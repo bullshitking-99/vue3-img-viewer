@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Ref } from "vue";
 import { onMounted, ref, watch } from "vue";
-import { getRects, debounce, enlarge, useGif } from "../utils";
+import { getRects, debounce, imgScale, useGif } from "../utils";
 
 interface Props {
   // 滚动检测源 - 响应式数据
@@ -84,11 +84,9 @@ function invertPlay(imgDom: HTMLImageElement, control: "show" | "close") {
 }
 
 // modal close handler - click & scroll
-// 在一次滚动行为中 只执行最后一次 并重新获取原图的位置
-// 进行防抖处理
 // 在关闭动画执行期间，不再响应事件调用，动画结束后再打开
 let closeable = true;
-const modalClose: () => void = debounce(function () {
+function modalClose() {
   // 滚动时触发，使用isShow判断是否执行
   if (isShow.value && closeable) {
     closeable = false;
@@ -98,21 +96,51 @@ const modalClose: () => void = debounce(function () {
 
     // modal background-transparent
     modal.style.backgroundColor = "transparent";
+
     // invert play again
     invertPlay(modalImg, "close");
   }
-}, 50);
+}
+
+// 响应滚动 - close
+// 在一次滚动行为中 只执行最后一次 并重新获取原图的位置
+// 进行防抖处理
+const modalClose_scroll: () => void = debounce(modalClose, 50);
+
+// 响应点击 - close
+// 点击延时处理，保留 timeid
+// 滞空期内再次点击判定为 dbclick，调用放大方法
+let timeId: number | null = null;
+let imgScaleOption: "in" | "out" = "in";
+const modalClose_dbClick = ({ offsetX, offsetY }: MouseEvent) => {
+  if (!timeId) {
+    timeId = setTimeout(() => {
+      modalClose();
+      // 如果作为单击执行则clear
+      timeId = null;
+      modalImg.style.transform = "none";
+    }, 230);
+  } else {
+    // 获取点击相对图片的位置
+    imgScale(imgScaleOption, modalImg, [offsetX, offsetY]);
+    // 调整后序双击缩放类型
+    imgScaleOption = imgScaleOption === "in" ? "out" : "in";
+    // clear
+    clearTimeout(timeId);
+    timeId = null;
+  }
+};
 
 // 滚动响应 - watch(isShow), 在modal打开时，监听滚动事件
 watch(isShow, (isShow) => {
   if (isShow) {
     if (props.scrollTop) {
-      watch(props.scrollTop, modalClose);
-    } else {
-      window.addEventListener("scroll", modalClose);
+      watch(props.scrollTop, modalClose_scroll);
+      return;
     }
+    window.addEventListener("scroll", modalClose_scroll);
   }
-  if (!isShow) window.removeEventListener("scroll", modalClose);
+  if (!isShow) window.removeEventListener("scroll", modalClose_scroll);
 });
 // 也可自行使用inject监听滚动源;
 
@@ -188,7 +216,11 @@ onMounted(() => {
       class="modal"
       :class="isShow ? 'modalShow' : 'modalClose'"
     >
-      <img id="imgViewer-modalImg" @dblclick.native="enlarge" :src="imgSrc" />
+      <img
+        id="imgViewer-modalImg"
+        @click.stop="modalClose_dbClick"
+        :src="imgSrc"
+      />
     </div>
     <slot></slot>
   </div>
@@ -203,7 +235,7 @@ onMounted(() => {
     top: 0;
     left: 0;
     cursor: zoom-out;
-    transition: all ease 0.25s;
+    transition: all ease 0.1s;
     z-index: 999;
 
     // 移动端放大后可移动查看
@@ -214,7 +246,8 @@ onMounted(() => {
     align-items: center;
 
     img {
-      pointer-events: none;
+      // pointer-events: none;
+      transition: all 0.3s ease;
       user-select: none;
       max-width: 100vw;
       max-height: 100vh;

@@ -1,6 +1,6 @@
 {
   "name": "vue3-img-viewer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "基于Vue3使用的图片查看组件 A lightly and smooth imgViewer for Vue/You",
   "files": [
     "dist"

@@ -22,14 +22,22 @@ export function debounce(func: Function, delay: number) {
   };
 }
 
-// 图片放大
-// 目前无效 - 需解决 modal-img 点击问题
-export function enlarge(event: MouseEvent): void {
-  console.log(event);
-  const { target: dom } = event;
-  // 判断：除image元素外无响应
-  if (!(dom instanceof HTMLImageElement)) return;
-  console.log("dbclick the img");
+// 图片缩放
+// 获取点击位置，以其为源点进行scale
+export function imgScale(
+  option: "in" | "out",
+  imgDom: HTMLImageElement,
+  [offsetX, offsetY]: number[]
+): void {
+  // 放大时附上样式
+  if (option === "in") {
+    imgDom.style.transform = "scale(1.3)";
+    imgDom.style.transformOrigin = `${offsetX}px ${offsetY}px`;
+  }
+  // 缩小时取消样式
+  if (option === "out") {
+    imgDom.style.transform = "scale(1)";
+  }
 }
 
 /**
