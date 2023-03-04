@@ -6,6 +6,8 @@ import { getRects, debounce, enlarge, useGif } from "../utils";
 interface Props {
   // 滚动检测源 - 响应式数据
   scrollTop?: Ref<number>;
+  // 是否静止gif
+  gifStatic?: boolean;
 }
 const props = defineProps<Props>();
 
@@ -134,26 +136,30 @@ onMounted(() => {
   imgs.forEach((img: HTMLImageElement) => {
     // 在图片加载完成后 进行处理
     img.onload = function () {
-      // 根据src后缀判断图片种类
-      const imgType = img.src.split(".").pop();
-      // gif处理
-      if (imgType === "gif") {
-        // 预设样式
-        img.style.cursor = "pointer";
-        // 将gif切换为封面，并导出控制方法
-        const { stop, play, isPlay } = useGif(img);
-        // 添加事件监听
-        img.addEventListener("click", () => {
-          isPlay.value ? stop() : play();
-        });
+      if (props.gifStatic) {
+        // console.log(props.gifStatic); // 空值传入自动为true
+        // 根据src后缀判断图片种类
+        const imgType = img.src.split(".").pop();
+        // gif处理
+        if (imgType === "gif") {
+          // 预设样式
+          img.style.cursor = "pointer";
+          // 将gif切换为封面，并导出控制方法
+          const { stop, play, isPlay } = useGif(img);
+          // 添加事件监听
+          img.addEventListener("click", () => {
+            isPlay.value ? stop() : play();
+          });
+
+          return;
+        }
       }
-      // 静态图片处理
-      if (imgType !== "gif") {
-        // 预设样式
-        img.style.cursor = "zoom-in";
-        // 添加事件监听
-        img.addEventListener("click", curImgClickHandler);
-      }
+
+      // 默认静态图片处理
+      // 预设样式
+      img.style.cursor = "zoom-in";
+      // 添加事件监听
+      img.addEventListener("click", curImgClickHandler);
     };
   });
 

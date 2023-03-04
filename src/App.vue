@@ -25,7 +25,7 @@ import ImgViewer from "./components/ImgViewer.vue";
       </a>
     </span>
 
-    <ImgViewer>
+    <ImgViewer gif-static>
       <h2>normal</h2>
       <img class="small" src="./assets/girl.png" alt="" />
       <h2>long and large</h2>
