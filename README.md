@@ -4,9 +4,7 @@
 
 ## 预览 Preview
 
-<video id="video" controls="" preload="none" poster="封面">
-      <source id="webm" src="https://github.com/bullshitking-99/vue3-img-viewer/blob/master/src/assets/img-viewer.webm?raw=true" type="video/webm">
-</video>
+![preview](https://github.com/bullshitking-99/vue3-img-viewer/blob/master/src/assets/vue3-img-viewer.gif?raw=true)
 
 ### [在线地址(online App)](https://bullshitking-99.github.io/vue3-img-viewer/)
 

@@ -73,7 +73,7 @@ function invertPlay(imgDom: HTMLImageElement, control: "show" | "close") {
       closeable = true;
 
       // put origin-img back
-      curImg.style.visibility = "visible";
+      curImg.style.opacity = "";
 
       // 取消副作用
       curImg.style.transition = "";
@@ -165,6 +165,7 @@ onMounted(() => {
   imgs.forEach((img: HTMLImageElement) => {
     // 在图片加载完成后 进行处理
     img.onload = function () {
+      // 根据参数情况特殊处理
       if (props.gifStatic) {
         // console.log(props.gifStatic); // 空值传入自动为true
         // 根据src后缀判断图片种类
@@ -197,14 +198,17 @@ onMounted(() => {
 
   // 预览图片dom
   modalImg = document.getElementById("imgViewer-modalImg") as HTMLImageElement;
+
   // 在预览图片加载完成后开始动画
   modalImg.onload = () => {
     prevRects = getRects(modalImg);
     scaleVal = curRects.width / prevRects.width;
+
+    // 原图片消失
+    curImg.style.opacity = "0";
+    curImg.style.transition = "all .07s ease";
     // 执行flip
     invertPlay(modalImg, "show");
-    // 原图片消失
-    curImg.style.visibility = "hidden";
   };
 });
 </script>
@@ -252,6 +256,7 @@ onMounted(() => {
       user-select: none;
       max-width: 100vw;
       max-height: 100vh;
+      cursor: zoom-in;
       // position: absolute; // scale 并未扩大modal的尺寸
     }
 

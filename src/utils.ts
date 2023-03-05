@@ -33,10 +33,12 @@ export function imgScale(
   if (option === "in") {
     imgDom.style.transform = "scale(1.4)";
     imgDom.style.transformOrigin = `${offsetX}px ${offsetY}px`;
+    imgDom.style.cursor = "zoom-out";
   }
   // 缩小时取消样式
   if (option === "out") {
     imgDom.style.transform = "scale(1)";
+    imgDom.style.cursor = "zoom-in";
   }
 }
 
