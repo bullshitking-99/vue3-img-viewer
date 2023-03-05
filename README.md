@@ -18,6 +18,8 @@
   - Scroll to exit in preview state
 - provide scrolling source by yourself
   - When it is inconvenient to use the native window to monitor scrolling, you can provide one yourself
+- Zoom by dbclick
+  - After the picture enters the preview state, double-click the picture and it will zoom in according to the clicked position, double-click again to restore the size
 - Unloaded images will not be recognized
   - Images that are not fully loaded or do not exist will be skipped during the processing stage, so as to ensure the normal operation of the component
 - Gif image static
@@ -33,6 +35,8 @@
   - 在预览状态下滚动即可退出
 - 自行提供滚动源
   - 在不方便使用原生 window 监听滚动时，你可以自己提供一个
+- 双击图片缩放
+  - 在图片进入预览状态后，双击图片他将根据点击位置放大，再次双击恢复大小，单击则退出预览
 - 未加载图片不会被识别
   - 未加载完全或不存在的图片在处理阶段会被跳过，这样可以保证组件正常运行
 - Gif 图像静止
@@ -124,12 +128,10 @@ interface Props {
 
 ## 待开发
 
-- 双击图片放大
 - ts 类型支持
 - 持续开发，敬请期待
 
 ## To be developed
 
-- double click to enlarge img
 - ts type declare
 - Continuous development, so stay tuned

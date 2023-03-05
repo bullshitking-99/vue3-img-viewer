@@ -57,7 +57,6 @@ function invertPlay(imgDom: HTMLImageElement, control: "show" | "close") {
   const options = {
     duration: 300,
     easing: "cubic-bezier(.2,0,.2,1)",
-    // easing: "linear",
   };
 
   // gogogo
@@ -79,6 +78,8 @@ function invertPlay(imgDom: HTMLImageElement, control: "show" | "close") {
       // 取消副作用
       curImg.style.transition = "";
       modal.style.backgroundColor = "";
+      modalImg.style.transform = "scale(1)";
+      modalImg.style.transformOrigin = "";
     });
   }
 }
@@ -251,6 +252,7 @@ onMounted(() => {
       user-select: none;
       max-width: 100vw;
       max-height: 100vh;
+      // position: absolute; // scale 并未扩大modal的尺寸
     }
 
     &.modalShow {

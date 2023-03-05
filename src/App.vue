@@ -14,16 +14,16 @@ import ImgViewer from "./components/ImgViewer.vue";
       try click again or scroll to close it.
     </p>
 
-    <toc-creator></toc-creator>
+    <!-- <toc-creator></toc-creator> -->
     <!-- toc-creator 介绍 -->
-    <span class="toc-creator describe">
+    <!-- <span class="toc-creator describe">
       this is my another npm
       <br />
       component:
       <a href="https://www.npmjs.com/package/toc-creator" target="_blank">
         toc-creator
       </a>
-    </span>
+    </span> -->
 
     <ImgViewer gif-static>
       <h2>normal</h2>

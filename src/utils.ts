@@ -31,7 +31,7 @@ export function imgScale(
 ): void {
   // 放大时附上样式
   if (option === "in") {
-    imgDom.style.transform = "scale(1.3)";
+    imgDom.style.transform = "scale(1.4)";
     imgDom.style.transformOrigin = `${offsetX}px ${offsetY}px`;
   }
   // 缩小时取消样式
