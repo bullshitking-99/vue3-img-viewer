@@ -4,7 +4,7 @@
 
 ## 预览 Preview
 
-![preview](https://github.com/bullshitking-99/vue3-img-viewer/blob/master/src/assets/vue3-img-viewer.gif?raw=true)
+<video src="https://github.com/bullshitking-99/vue3-img-viewer/blob/master/src/assets/img-viewer.webm?raw=true"></video>
 
 ### [在线地址(online App)](https://bullshitking-99.github.io/vue3-img-viewer/)
 
